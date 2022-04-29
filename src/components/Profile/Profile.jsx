@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
-import noAvatar from '../../images/noavatar.svg';
-
 import styles from './Profile.module.css';
 
-const Profile = ({ avatar, name, tag, location, stats }) => (
+const Profile = ({ avatar, username, tag, location, stats }) => (
   <div className={styles.profile}>
     <div className={styles.description}>
       <img
@@ -12,7 +10,7 @@ const Profile = ({ avatar, name, tag, location, stats }) => (
         className={styles.avatar}
         width="150"
       />
-      <p className={styles.name}>{name}</p>
+      <p className={styles.username}>{username}</p>
       <p className={styles.tag}>@{tag}</p>
       <p className={styles.location}>{location}</p>
     </div>
@@ -34,13 +32,9 @@ const Profile = ({ avatar, name, tag, location, stats }) => (
   </div>
 );
 
-Profile.defaultProps = {
-  avatar: noAvatar,
-};
-
 Profile.propTypes = {
   avatar: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  username: PropTypes.string,
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   stats: PropTypes.objectOf(PropTypes.number).isRequired,
